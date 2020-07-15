@@ -24,19 +24,30 @@ final class ViewController: UIViewController {
         
         self.setLayout()
         self.bindStyle()
+        self.bindData()
     }
 
     // MARK: - Functions
+    
+    @objc
+    private func buttonClicked(_ sender: UIButton) {
+        print("얍!")
+    }
+    
+    private func bindData() {
+        label.text = "얍?"
+        
+        button.setTitle("얍!", for: .normal)
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+    }
     
     private func bindStyle() {
         self.view.backgroundColor = .white
         
         label.textColor = .black
         label.backgroundColor = .yellow
-        label.text = "얍?"
         
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("얍!", for: .normal)
         button.backgroundColor = .white
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
